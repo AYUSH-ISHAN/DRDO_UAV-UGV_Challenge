@@ -35,8 +35,8 @@ If you are found of PPT format. Please visit this <a href="https://docs.google.c
     </td>
   
   <td align="center">
-     <a href="https://github.com/sherlockholmes">
-    <img src="https://avatars.githubusercontent.com/u/1232480?v=4" width="100px;" alt=""/><br /><sub><b>Chahak Jethani</b></sub></a><br />
+     <a href="https://github.com/sherlockholmes1603">
+    <img src="https://avatars.githubusercontent.com/u/77875542?v=4" width="100px;" alt=""/><br /><sub><b>Chahak Jethani</b></sub></a><br />
     </td>
   <td align="center">
      <a href="https://github.com/harshmahesheka">
