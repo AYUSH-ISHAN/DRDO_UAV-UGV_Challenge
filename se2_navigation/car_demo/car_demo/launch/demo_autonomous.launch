@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="model"
+		default="$(find prius_description)/urdf/prius.urdf" />
+	<arg name="rvizconfig"
+		default="$(find car_demo)/rviz/demo_autonomous.rviz" />
+	<arg name="launch_rviz" default="true" />
+
+	<arg name="ompl_planner_ros_parameter_path"
+		default="$(find car_demo)/config/reeds_shepp_planner_ros.yaml" />
+	<arg name="prius_path_tracker_ros_parameters_filename"
+		default="$(find car_demo)/config/prius_path_tracker_ros_parameters.yaml" />
+	<arg name="prius_pid_parameters_filename"
+		default="$(find car_demo)/config/prius_pid_parameters.yaml" />
+
+	<param name="/prius_path_tracker_ros_parameters_filename"
+		type="string"
+		value="$(arg prius_path_tracker_ros_parameters_filename)" />
+	<param name="/prius_pid_parameters_filename" type="string"
+		value="$(arg prius_pid_parameters_filename)" />
+	<param name="robot_description" textfile="$(arg model)" />
+
+	<include
+		file="$(find se2_planning_ros)/launch/se2_planner.launch">
+		<arg name="launch_rviz" value="false" />
+		<arg name="ompl_planner_ros_parameter_path"
+			value="$(arg ompl_planner_ros_parameter_path)" />
+	</include>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <arg name="world_name" value="$(find car_demo)/worlds/empty.world"/> 
+        <arg name="gui" value="true"/>
+        <arg name="verbose" value="true"/>
+      <!-- more default parameters can be changed here -->
+      </include>
+
+	<node pkg="robot_state_publisher" type="robot_state_publisher"
+		name="robot_state_publisher">
+		<!-- <remap from="robot_description" to="different_robot_description" /> -->
+		<!-- <remap from="joint_states" to="/prius/joint_states" /> -->
+	</node>
+	<!-- <node pkg="fake_localization" type="fake_localization"
+		name="fake_localization">
+		<remap from="base_pose_ground_truth" to="/prius/base_pose_ground_truth" />
+		<remap from="initialpose" to="initialpose" />
+
+		<param name="odom_frame_id"             value="/gazebo/link_states"/>
+		<param name="global_frame_id"             value="map"/>
+		<param name="base_frame_id"             value="base_link_ugv"/>
+	</node> -->
+	<!--<node pkg="tf2_ros" type="static_transform_publisher"
+		name="very_inaccurate_odom" args="0 0 0 0 0 0 odom base_link" />-->
+	<node pkg="car_demo" type="prius_controller_node"
+		name="prius_controller_node" output="screen" launch-prefix="" />
+
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+		args="-param robot_description -urdf -x 0 -y 0 -z 0 -Y -2.161422 -model prius" />
+    <node name="rviz_car_demo" pkg="rviz" type="rviz"
+		args="-d $(arg rvizconfig)" required="true" />
+
+	
+		<!-- Joint state publisher  -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+		
+</launch>
