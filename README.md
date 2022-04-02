@@ -40,7 +40,7 @@ If you are found of PPT format. Please visit this <a href="https://docs.google.c
     </td>
   <td align="center">
      <a href="https://github.com/harshmahesheka">
-    <img src="https://avatars.githubusercontent.com/u/78502324?v=4" width="100px;" alt=""/><br /><sub><b>Harsh Mahesheka</b></sub></a><br />
+    <img src="https://avatars.githubusercontent.com/u/1232480?v=4" width="100px;" alt=""/><br /><sub><b>Harsh Mahesheka</b></sub></a><br />
 	</td>
   <td align="center">
      <a href="https://github.com/san2130">
