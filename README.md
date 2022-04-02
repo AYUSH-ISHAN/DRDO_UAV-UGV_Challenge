@@ -22,8 +22,8 @@ If you are found of PPT format. Please visit this <a href="https://docs.google.c
 ## Contributors:
 <table>
    <td align="center">
-     <a href="https://github.com/AmiteshVatsa">
-    <img src="https://avatars.githubusercontent.com/u/85081793?v=4" width="100px;" alt=""/><br /><sub><b>Amitesh Vatsa</b></sub></a><br />
+     <a href="https://github.com/vtsamit">
+    <img src="https://avatars.githubusercontent.com/u/96468536?v=4" width="100px;" alt=""/><br /><sub><b>Amitesh Vatsa</b></sub></a><br />
     </td>
   <td align="center">
      <a href="https://github.com/phoenixrider12">
