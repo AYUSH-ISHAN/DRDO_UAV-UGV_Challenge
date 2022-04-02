@@ -1,0 +1,10 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" />
+
+  <node pkg="nodelet" type="nodelet" name="nodelet1"
+        args="load depth_image_proc/convert_metric nodelet_manager">
+    <remap from="camera_info" to="/depth_camera/color/camera_info"/>
+    <remap from="image_raw" to="/depth_camera/depth/image_raw"/>
+    <!-- <remap from="points" to="/depth_camera/depth/points2"/> -->
+  </node>
+</launch>
